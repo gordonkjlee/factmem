@@ -2,7 +2,7 @@
   "name": "@facthouse/mcp",
   "version": "0.29.0",
   "mcpName": "io.github.gordonkjlee/facthouse",
-  "description": "Local AI memory that consolidates - neuroscience-inspired Data → Information → Knowledge in SQLite you own.",
+  "description": "Local AI memory: neuroscience-inspired Data→Information→Knowledge in SQLite you own.",
   "type": "module",
   "license": "MIT",
   "author": "Gordon Lee",
