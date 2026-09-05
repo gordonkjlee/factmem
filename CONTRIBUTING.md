@@ -18,7 +18,7 @@ npm test
 
 npm publish is automated (`Publish to npm`). After that workflow succeeds, `Publish to MCP Registry` publishes `server.json` to the official MCP Registry as `io.github.gordonkjlee/facthouse` via `mcp-publisher login github-oidc` (no PAT, no npm token).
 
-`mcpName` in `package.json` must equal `name` in `server.json`. release-please bumps `server.json` versions through extra-files.
+`mcpName` in `package.json` must equal `name` in `server.json`. release-please bumps `server.json` versions through extra-files. Official MCP Registry description maxLength is 100 characters; keep `server.json` description (and the `package.json` description that feeds the same listing) at ≤100 forever.
 
 To list a version already on npm without cutting a new release: Actions → "Publish to MCP Registry" → Run workflow. GitHub OIDC publish cannot be dry-run from a pull request; the first listing is that post-merge dispatch.
 

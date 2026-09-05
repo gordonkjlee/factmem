@@ -164,8 +164,12 @@ def test_listing_description_matches_package_and_registry():
     assert server["description"] == SHORT_PITCH
     assert build_pages.PITCH == SHORT_PITCH
     assert build_pages.listing_description() == SHORT_PITCH
-    # MCP Registry server.schema.json description maxLength is 100.
+    # Official MCP Registry server.schema.json description maxLength is 100.
+    # Assert each field that can feed the listing, not only the shared constant.
+    assert len(server["description"]) <= 100
+    assert len(pkg["description"]) <= 100
     assert len(SHORT_PITCH) <= 100
+    assert len(build_pages.listing_description()) <= 100
     assert "mem0" not in SHORT_PITCH.lower()
     assert "Wisdom" not in SHORT_PITCH
 

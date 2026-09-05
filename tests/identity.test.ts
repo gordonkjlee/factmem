@@ -35,6 +35,19 @@ describe("identity", () => {
     expect(ENV_PREFIX).toBe("FACTHOUSE");
   });
 
+  it("keeps the MCP Registry listing description at or under 100 characters", () => {
+    const pkg = JSON.parse(readFileSync(path.join(root, "package.json"), "utf8"));
+    const server = JSON.parse(readFileSync(path.join(root, "server.json"), "utf8"));
+    // Official MCP Registry server.schema.json description maxLength is 100.
+    // Publish to npm runs this vitest suite; Pages Python tests do not run there.
+    // 0.29.0 failed Validate server.json at 107 characters.
+    expect(typeof server.description).toBe("string");
+    expect(typeof pkg.description).toBe("string");
+    expect(server.description.length).toBeLessThanOrEqual(100);
+    expect(pkg.description.length).toBeLessThanOrEqual(100);
+    expect(pkg.description).toBe(server.description);
+  });
+
   it("does not dual-publish a linger package", () => {
     expect(npmPackageSpec("1.2.3")).toBe(`${NPM_PACKAGE}@1.2.3`);
     expect(npmPackageSpec(null)).toBe(NPM_PACKAGE);
