@@ -12,8 +12,8 @@ import build_pages
 
 ROOT = Path(__file__).resolve().parents[2]
 SHORT_PITCH = (
-    "Local AI memory that consolidates - neuroscience-inspired "
-    "Data → Information → Knowledge in SQLite you own."
+    "Local AI memory: neuroscience-inspired "
+    "Data→Information→Knowledge in SQLite you own."
 )
 README_PITCH = (
     "Facthouse is a local memory engine for AI tools. Most “memory” products "
@@ -164,6 +164,8 @@ def test_listing_description_matches_package_and_registry():
     assert server["description"] == SHORT_PITCH
     assert build_pages.PITCH == SHORT_PITCH
     assert build_pages.listing_description() == SHORT_PITCH
+    # MCP Registry server.schema.json description maxLength is 100.
+    assert len(SHORT_PITCH) <= 100
     assert "mem0" not in SHORT_PITCH.lower()
     assert "Wisdom" not in SHORT_PITCH
 
