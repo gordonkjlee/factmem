@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.29.1](https://github.com/gordonkjlee/facthouse/compare/v0.29.0...v0.29.1) (2026-09-05)
+
+
+### Bug Fixes
+
+* shorten MCP Registry description to 100-char max ([#257](https://github.com/gordonkjlee/facthouse/issues/257)) ([10bcdae](https://github.com/gordonkjlee/facthouse/commit/10bcdaed757f66960e76fe267643c12d8d9b5b84))
+
 ## [0.29.0](https://github.com/gordonkjlee/facthouse/compare/v0.28.1...v0.29.0) (2026-09-05)
 
 
